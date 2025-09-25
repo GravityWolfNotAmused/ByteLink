@@ -1,0 +1,2 @@
+dotnet ef migrations remove --context ApplicationDbContext --project ByteLink.Infrastructure --startup-project ByteLink.API
+dotnet ef migrations remove --context TenantDbContext --project ByteLink.Infrastructure --startup-project ByteLink.API

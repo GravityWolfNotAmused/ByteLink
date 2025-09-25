@@ -1,0 +1,2 @@
+dotnet ef migrations add InitialMigrationForFirstContext --context ApplicationDbContext  --project ByteLink.Infrastructure --startup-project ByteLink.API -o Migrations
+dotnet ef migrations add InitialMigrationForSecondContext --context TenantDbContext  --project ByteLink.Infrastructure --startup-project ByteLink.API -o TenantAPIMigrations

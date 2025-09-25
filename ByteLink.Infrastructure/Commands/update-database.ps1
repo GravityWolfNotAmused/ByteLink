@@ -1,0 +1,2 @@
+dotnet ef database update --context ApplicationDbContext --project ByteLink.Infrastructure --startup-project ByteLink.API
+dotnet ef database update --context TenantDbContext --project ByteLink.Infrastructure --startup-project ByteLink.API

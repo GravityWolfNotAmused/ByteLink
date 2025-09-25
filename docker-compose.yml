@@ -1,0 +1,40 @@
+services:
+  db-migration:
+    image: ${DOCKER_REGISTRY:-}migratedbcommand
+    build:
+        context: .
+        dockerfile: ByteLink.MigrateCommand/Dockerfile
+  bytelink.api:
+    image: ${DOCKER_REGISTRY:-}bytelinkapi
+    depends_on: [influxdb, db-migration]
+    build:
+      context: .
+      dockerfile: ByteLink.API/Dockerfile
+    ports:
+        - "8080:8080"
+        - "8081:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  influxdb:
+    image: influxdb:2.0
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=8463BCF4-D989-40FF-9620-3D964BCCF146
+      - DOCKER_INFLUXDB_INIT_ORG=bytelink
+      - DOCKER_INFLUXDB_INIT_BUCKET=linkvisits
+      - DOCKER_INFLUXDB_INIT_RETENTION=30d
+
+volumes:
+  influxdb-data:
