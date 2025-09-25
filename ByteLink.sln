@@ -17,12 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteLink.MigrateCommand", "
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1B0261C9-0ECE-43E2-A933-BCDE85D15BA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteLink.UI", "ByteLink.UI\ByteLink.UI.csproj", "{CCD40A93-F55F-47FD-872C-5E4DFC6E1BB9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteLink.AppHost", "ByteLink.AppHost\ByteLink.AppHost.csproj", "{F8C72228-A0BD-4529-B03D-043995D10227}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteLink.ServiceDefaults", "ByteLink.ServiceDefaults\ByteLink.ServiceDefaults.csproj", "{4E299D9C-0A65-4013-85C2-CAF18E1246DC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,20 +51,11 @@ Global
 		{1B0261C9-0ECE-43E2-A933-BCDE85D15BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B0261C9-0ECE-43E2-A933-BCDE85D15BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B0261C9-0ECE-43E2-A933-BCDE85D15BA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCD40A93-F55F-47FD-872C-5E4DFC6E1BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCD40A93-F55F-47FD-872C-5E4DFC6E1BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCD40A93-F55F-47FD-872C-5E4DFC6E1BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCD40A93-F55F-47FD-872C-5E4DFC6E1BB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8C72228-A0BD-4529-B03D-043995D10227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8C72228-A0BD-4529-B03D-043995D10227}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8C72228-A0BD-4529-B03D-043995D10227}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8C72228-A0BD-4529-B03D-043995D10227}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E299D9C-0A65-4013-85C2-CAF18E1246DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E299D9C-0A65-4013-85C2-CAF18E1246DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E299D9C-0A65-4013-85C2-CAF18E1246DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E299D9C-0A65-4013-85C2-CAF18E1246DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45E89C5A-271A-4102-AE13-31E281560D05}
 	EndGlobalSection
 EndGlobal
