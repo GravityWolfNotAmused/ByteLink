@@ -1,0 +1,42 @@
+@using ByteLink.Web.Services.Interfaces
+@inject IAuthService AuthService
+@inject IJSRuntime JSRuntime
+
+@code {
+    public bool IsAuthenticated { get; private set; }
+    public string? UserEmail { get; private set; }
+    public string? Token { get; private set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CheckAuthenticationStatus();
+    }
+
+    public async Task CheckAuthenticationStatus()
+    {
+        IsAuthenticated = await AuthService.IsAuthenticatedAsync();
+        if (IsAuthenticated)
+        {
+            Token = await AuthService.GetTokenAsync();
+            // You could decode the JWT token to get user email if needed
+            // For now, we'll store it in localStorage separately if needed
+        }
+        StateHasChanged();
+    }
+
+    public async Task LoginAsync(string token)
+    {
+        IsAuthenticated = true;
+        Token = token;
+        StateHasChanged();
+    }
+
+    public async Task LogoutAsync()
+    {
+        await AuthService.LogoutAsync();
+        IsAuthenticated = false;
+        Token = null;
+        UserEmail = null;
+        StateHasChanged();
+    }
+}

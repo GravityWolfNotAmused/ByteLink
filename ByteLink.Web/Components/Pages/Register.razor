@@ -1,0 +1,100 @@
+@page "/register"
+@using ByteLink.Web.Services.Interfaces
+@using ByteLink.Web.Services.Models
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+
+<PageTitle>Register - ByteLink</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="mt-16">
+    <MudPaper Class="pa-8" Elevation="3">
+        <MudText Typo="Typo.h4" Class="mb-6 text-center">
+            <MudIcon Icon="Icons.Material.Filled.PersonAdd" Class="mr-2" />
+            Create Account
+        </MudText>
+
+        <MudForm @ref="form" @bind-IsValid="@isValid" @bind-Errors="@errors">
+            <MudTextField @bind-Value="registerRequest.Email"
+                         Label="Email"
+                         Variant="Variant.Outlined"
+                         For="@(() => registerRequest.Email)"
+                         Required="true"
+                         RequiredError="Email is required"
+                         Email="true"
+                         EmailError="Must be a valid email"
+                         Class="mb-4" />
+
+            <MudTextField @bind-Value="registerRequest.Password"
+                         Label="Password"
+                         Variant="Variant.Outlined"
+                         InputType="InputType.Password"
+                         For="@(() => registerRequest.Password)"
+                         Required="true"
+                         RequiredError="Password is required"
+                         HelperText="Password must be at least 8 characters with uppercase, lowercase, number, and special character"
+                         Class="mb-6" />
+
+            <MudButton Variant="Variant.Filled"
+                      Color="Color.Primary"
+                      FullWidth="true"
+                      Size="Size.Large"
+                      Disabled="@isLoading"
+                      OnClick="HandleRegister">
+                @if (isLoading)
+                {
+                    <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                    <MudText Class="ms-2">Creating account...</MudText>
+                }
+                else
+                {
+                    <MudText>Create Account</MudText>
+                }
+            </MudButton>
+        </MudForm>
+
+        <MudDivider Class="my-6" />
+
+        <MudText Typo="Typo.body2" Class="text-center">
+            Already have an account?
+            <MudLink Href="/login" Class="ml-1">Sign in here</MudLink>
+        </MudText>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private MudForm form = new();
+    private bool isValid = true;
+    private string[] errors = { };
+    private bool isLoading = false;
+    private RegisterRequest registerRequest = new() { Email = "", Password = "" };
+
+    private async Task HandleRegister()
+    {
+        if (!isValid) return;
+
+        isLoading = true;
+        try
+        {
+            var result = await AuthService.RegisterAsync(registerRequest);
+            
+            if (result.IsSuccess)
+            {
+                Snackbar.Add("Account created successfully! Please sign in.", Severity.Success);
+                Navigation.NavigateTo("/login");
+            }
+            else
+            {
+                Snackbar.Add(result.ErrorMessage ?? "Registration failed", Severity.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"An error occurred: {ex.Message}", Severity.Error);
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

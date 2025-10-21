@@ -1,0 +1,86 @@
+﻿@inherits LayoutComponentBase
+@inject AuthStateProvider AuthState
+
+<MudThemeProvider Theme="_theme" IsDarkMode="true" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        @if (AuthState.IsAuthenticated)
+        {
+            <MudIconButton Icon="Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        }
+        <MudSpacer />
+        <MudText Typo="Typo.h6">ByteLink</MudText>
+        <MudSpacer />
+        @if (AuthState.IsAuthenticated)
+        {
+            <MudMenu Icon="Icons.Material.Filled.AccountCircle" Color="Color.Inherit" AnchorOrigin="Origin.BottomRight">
+                <MudMenuItem Icon="Icons.Material.Filled.Person" OnClick="NavigateToProfile">Profile</MudMenuItem>
+                <MudMenuItem Icon="Icons.Material.Filled.Settings" OnClick="NavigateToSettings">Settings</MudMenuItem>
+                <MudDivider />
+                <MudMenuItem Icon="Icons.Material.Filled.Logout" OnClick="HandleLogout">Logout</MudMenuItem>
+            </MudMenu>
+        }
+        else
+        {
+            <MudButton Variant="Variant.Text" 
+                       Color="Color.Inherit" 
+                       StartIcon="Icons.Material.Filled.Login"
+                       Href="/login">
+                Login
+            </MudButton>
+        }
+    </MudAppBar>
+    
+    @if (AuthState.IsAuthenticated)
+    {
+        <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+            <NavMenu />
+        </MudDrawer>
+    }
+    
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool _drawerOpen = true;
+
+    private MudTheme _theme = new()
+    {
+        PaletteDark = new PaletteDark()
+        {
+            Primary = "#7B68EE",
+            Secondary = "#FF6B6B",
+            Background = "#1A1A1A",
+            Surface = "#2D2D2D",
+            AppbarBackground = "#1A1A1A",
+            DrawerBackground = "#2D2D2D"
+        }
+    };
+
+    private void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    private void NavigateToProfile()
+    {
+        // TODO: Navigate to profile page
+    }
+
+    private void NavigateToSettings()
+    {
+        // TODO: Navigate to settings page
+    }
+
+    private async Task HandleLogout()
+    {
+        await AuthState.LogoutAsync();
+    }
+}

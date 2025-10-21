@@ -24,7 +24,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ByteLink.Application\ByteLink.Application.csproj" />
     <ProjectReference Include="..\ByteLink.Infrastructure\ByteLink.Infrastructure.csproj" />
-    <ProjectReference Include="..\ByteLink.ServiceDefaults\ByteLink.ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>

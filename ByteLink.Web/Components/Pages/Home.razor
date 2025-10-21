@@ -1,0 +1,141 @@
+﻿@page "/"
+
+<PageTitle>ByteLink - Professional URL Shortening Service</PageTitle>
+
+<!-- Hero Section -->
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-8">
+    <MudGrid Justify="Justify.Center" AlignItems="Center.Center" Class="min-vh-50">
+        <MudItem xs="12" md="8" lg="6">
+            <MudText Typo="Typo.h2" Class="text-center mb-4" Style="font-weight: 300;">
+                Professional URL Management
+            </MudText>
+            <MudText Typo="Typo.h4" Class="text-center mb-6" Style="font-weight: 200; opacity: 0.8;">
+                Shorten, track, and analyze your links with enterprise-grade security
+            </MudText>
+            <div class="text-center mb-8">
+                <MudButton Variant="Variant.Filled" 
+                           Color="Color.Primary" 
+                           Size="Size.Large"
+                           StartIcon="Icons.Material.Filled.AddLink"
+                           Href="/urls/create">
+                    Get Started
+                </MudButton>
+            </div>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+<!-- Features Section -->
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
+    <MudText Typo="Typo.h3" Class="text-center mb-8" Style="font-weight: 300;">
+        Why Choose ByteLink?
+    </MudText>
+    
+    <MudGrid>
+        <MudItem xs="12" md="4" Class="mb-6">
+            <MudCard Elevation="2" Class="h-100">
+                <MudCardContent Class="pa-6 text-center">
+                    <MudIcon Icon="Icons.Material.Filled.Security" 
+                             Size="Size.Large" 
+                             Color="Color.Primary" 
+                             Class="mb-4" />
+                    <MudText Typo="Typo.h6" Class="mb-3">Enterprise Security</MudText>
+                    <MudText Typo="Typo.body2" Class="opacity-80">
+                        Bank-grade encryption and secure authentication protect your data and links.
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        
+        <MudItem xs="12" md="4" Class="mb-6">
+            <MudCard Elevation="2" Class="h-100">
+                <MudCardContent Class="pa-6 text-center">
+                    <MudIcon Icon="Icons.Material.Filled.Analytics" 
+                             Size="Size.Large" 
+                             Color="Color.Secondary" 
+                             Class="mb-4" />
+                    <MudText Typo="Typo.h6" Class="mb-3">Advanced Analytics</MudText>
+                    <MudText Typo="Typo.body2" Class="opacity-80">
+                        Detailed insights into click patterns, geographic data, and user behavior.
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        
+        <MudItem xs="12" md="4" Class="mb-6">
+            <MudCard Elevation="2" Class="h-100">
+                <MudCardContent Class="pa-6 text-center">
+                    <MudIcon Icon="Icons.Material.Filled.Speed" 
+                             Size="Size.Large" 
+                             Color="Color.Tertiary" 
+                             Class="mb-4" />
+                    <MudText Typo="Typo.h6" Class="mb-3">Lightning Fast</MudText>
+                    <MudText Typo="Typo.body2" Class="opacity-80">
+                        Sub-millisecond redirect times with 99.9% uptime guarantee.
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+<!-- Stats Section -->
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
+    <MudCard Elevation="3" Class="pa-8">
+        <MudGrid Justify="Justify.SpaceAround" AlignItems="Center.Center">
+            <MudItem xs="6" sm="3" Class="text-center">
+                <MudText Typo="Typo.h3" Color="Color.Primary" Style="font-weight: 300;">10M+</MudText>
+                <MudText Typo="Typo.body2" Class="opacity-80">Links Created</MudText>
+            </MudItem>
+            <MudItem xs="6" sm="3" Class="text-center">
+                <MudText Typo="Typo.h3" Color="Color.Secondary" Style="font-weight: 300;">99.9%</MudText>
+                <MudText Typo="Typo.body2" Class="opacity-80">Uptime</MudText>
+            </MudItem>
+            <MudItem xs="6" sm="3" Class="text-center">
+                <MudText Typo="Typo.h3" Color="Color.Tertiary" Style="font-weight: 300;">50K+</MudText>
+                <MudText Typo="Typo.body2" Class="opacity-80">Active Users</MudText>
+            </MudItem>
+            <MudItem xs="6" sm="3" Class="text-center">
+                <MudText Typo="Typo.h3" Color="Color.Success" Style="font-weight: 300;">24/7</MudText>
+                <MudText Typo="Typo.body2" Class="opacity-80">Support</MudText>
+            </MudItem>
+        </MudGrid>
+    </MudCard>
+</MudContainer>
+
+<!-- CTA Section -->
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
+    <MudCard Elevation="2" Class="pa-8 text-center">
+        <MudText Typo="Typo.h4" Class="mb-4" Style="font-weight: 300;">
+            Ready to Get Started?
+        </MudText>
+        <MudText Typo="Typo.body1" Class="mb-6 opacity-80">
+            Join thousands of businesses already using ByteLink for their URL management needs.
+        </MudText>
+        <MudButton Variant="Variant.Filled" 
+                   Color="Color.Primary" 
+                   Size="Size.Large"
+                   StartIcon="Icons.Material.Filled.RocketLaunch"
+                   Class="mr-3"
+                   Href="/register">
+            Create Account
+        </MudButton>
+        <MudButton Variant="Variant.Text" 
+                   Color="Color.Secondary" 
+                   Size="Size.Large"
+                   StartIcon="Icons.Material.Filled.Login"
+                   Href="/login">
+            Sign In
+        </MudButton>
+    </MudCard>
+</MudContainer>
+
+<style>
+    .min-vh-50 {
+        min-height: 50vh;
+    }
+    
+    .opacity-80 {
+        opacity: 0.8;
+    }
+</style>
