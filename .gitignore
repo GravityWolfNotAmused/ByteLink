@@ -20,7 +20,48 @@ packages/
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
+# Configuration files with sensitive data
 appsettings.json
+appsettings.*.json
 ByteLink.API/appsettings.Development.json
 ByteLink.MigrateCommand/appsettings.Development.json
+ByteLink.DatabaseSetup/appsettings.Development.json
+ByteLink.Web/appsettings.Development.json
+ByteLink.Web.Services/appsettings.Development.json
 ByteLink.API/Properties/launchSettings.json
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+
+# Docker secrets
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# Logs
+logs/
+*.log
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
