@@ -65,3 +65,9 @@ tmp/
 # OS files
 .DS_Store
 Thumbs.db
+DEV-SETUP.md
+DOCKER-SETUP.md
+DOCKER_IP_FIX.md
+ENVIRONMENT.md
+reset-admin-password.bat
+CREDENTIALS.md
